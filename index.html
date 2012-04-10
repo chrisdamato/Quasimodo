@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+	<head>
+		<meta charset="utf-8">
+		<title>mo-bs</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<!-- Le styles -->
+		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+		<style type="text/css">
+			body {
+				padding-top: 60px;
+				padding-bottom: 40px;
+			}
+			.sidebar-nav {
+				padding: 9px 0;
+			}
+		</style>
+		<style type="text/css">
+			.hero-unit ul.bells {
+				font-size: 48px;
+			}
+			ul.bells {
+				list-style: none;
+				margin: 8px 0 0 0;
+			}
+			ul.bells li {
+				line-height: normal;
+			}
+			ul.bells li ul li {
+				display: inline-block;
+				/*border: 1px dotted green;*/
+				display: inline-block;
+			}
+			.live-shortbells ul {
+				list-style: none;
+			}
+			li.period {
+				width: 5em;
+				font-size: 60%;
+			}
+			li.caption {
+				width: 10em;
+			}
+			li.Start, li.End {
+				width: 4em;
+				text-align: right;
+				font-size: 60%;
+			}
+			li.Start:after {
+				/*content: " - ";*/
+			}
+			table.bells td.caption {
+				font-size:150%;
+				line-height: 150%;
+			}
+			table.bells tr.TAG, tr.Lunch, tr.STAR td.caption {
+				color: #ccc;
+			}
+			.hud .well {
+				font-size: 32px;
+				text-align: center;
+			}
+			.hud .clock {
+				font-size: 48px;
+			}
+			div.today h3 {
+				background: yellow;
+			}
+      .hero-unit {
+        text-align: center;
+      }
+
+		</style>
+		<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<!-- Le fav and touch icons -->
+		<link rel="shortcut icon" href="images/favicon.ico">
+		<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	</head>
+	
+	<body>
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="#">Quasimodo</a>
+				<div class="nav-heading">
+					<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active">
+							<a href="#">Home</a>
+						</li>
+						<li>
+							<a href="#about">About</a>
+						</li>
+						<li>
+							<a href="#contact">Contact</a>
+						</li>
+					</ul>
+					<p class="pull-right navbar-text live-status"></p>
+					</div>
+					<!--/.nav-collapse -->
+				</div>
+			</div>
+			</div>  
+		</div>
+		<div class="container-fluid">
+			<div class="hud row-fluid">
+				<div class="span3">
+					<div class="well">
+						<span class="live-day"></span>
+					</div>
+				</div>
+				<div class="span3">
+					<div class="well">
+						<span class="live-date"></span>
+						<span class="live-month"></span>
+					</div>
+				</div>
+				<div class="span2">
+					<div class="well">
+						<span class="live-schedule"></span>
+					</div>
+				</div>
+				<div class="span1">
+					<div class="well">
+						<span class="live-letter"></span>
+					</div>
+				</div>
+				<div class="span3">
+					<div class="well clock">
+						<span class="live-time"></span><span style="font-size:60%; color: #ccc" class="live-s"></span>
+					</div>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span4">
+					<h1>Today:</h1>
+					<div class="live-today"></div>
+				</div>
+				<div class="span8">
+					<!-- <div class="hero-unit">
+						<h1>
+							<span class="live-status"></span>
+						</h1>
+						<div id="bells"></div>
+					</div> -->
+					<div class="tabbable">
+						<ul class="nav nav-tabs">
+							<li class="active">
+								<a href="#1" data-toggle="tab">Next</a>
+							</li>
+							<li class="">
+								<a href="#2" data-toggle="tab">Now</a>
+							</li>
+							
+						</ul>
+						<div class="tab-content" style="height: 129px; font-size:32px; text-align: center">
+							<div class="tab-pane active" id="1">
+								<div class="live-status"></div>
+							</div>
+							<div class="tab-pane" id="2">
+								<div class="live-time"></div>
+							</div>
+						</div>
+						<div id="week0" class="row-fluid"></div>
+						<div id="week1" class="row-fluid"></div>
+					</div>
+					<!--/span-->
+				</div>
+			<!--/row-->
+		</div>
+		<hr>
+		<footer>
+			<span>&copy; chrisdamato.com 2012</span>
+			<span class="pull-right live-adjustment"></span>
+		</footer>
+		<!--/.fluid-container-->
+	<!-- Placed at the end of the document so the pages load faster -->
+		<script src="javascripts/jquery-1.7.js"></script>
+		<script src="bootstrap/js/bootstrap.js"></script>
+		<script src="mohs.js"></script>
+		<script src="module-clock.js"></script>
+		<script type="text/javascript">
+			d = new Date();
+			MO.defaultProfile.blocks.B1.name = "Physics 1 CP";
+			MO.defaultProfile.blocks.B2.name = "Study hall";
+			MO.defaultProfile.blocks.B3.name = "Physics 3 H";
+			MO.defaultProfile.blocks.B4.name = "Library";
+			MO.defaultProfile.blocks.B5.name = "Prep";
+			MO.defaultProfile.blocks.B6.name = "Physics 6 H";
+			MO.defaultProfile.blocks.B7.name = "Physics 7 CP";
+			MO.defaultProfile.blocks.B8.name = "Physics 8 H";
+			MO.defaultProfile.blocks.B9 = {
+				name: "PLC time"
+			};
+			MO.defaultProfile.matrix[3].AM2 = "B9";
+
+			clock.onSecond = function () {
+				$(".live-s").text("." + clock.now.Second);
+			};
+			clock.onMinute = function () {
+				$(".live-time").text(clock.now.Time);
+				$(".live-status").text(clock.now.getStatus().description);
+			};
+			clock.onDate = function () {
+				$(".live-today").html(clock.now.tableBells());
+				$(".live-day-date").text(clock.now.Day + " " + clock.now.ShortDate);
+				$(".live-day").text(clock.now.Day);
+				$(".live-mon").text(clock.now.Mon);
+				$(".live-month").text(clock.now.Month);
+				$(".live-date").text(clock.now.getDate());
+				$(".live-letter").text(clock.now.Letter);
+				$(".live-schedule").text(clock.now.Schedule);
+
+				$(".live-bells").html(clock.now.getBellsElement());
+				$(".live-shortbells").html(clock.now.bells.reduce(function (a, b) {
+					$(a).append($("<li>").text(b.caption));
+					return a;
+				}, $("<ul>")));
+			};
+
+			// clock.adjust=function(ms){return ms+1*24*60*60*1000};
+
+			clock.tick();
+
+			var days = [
+				[],
+				[]
+			] // two weeks of weekdays
+			var monday = new Date(clock.now.getTime() + (1 - clock.now.getDay()) * 86400000);
+
+			([0, 1]).forEach(function (week) {
+				([0, 1, 2, 3, 4]).forEach(function (day) {
+
+					var rtn = $('<div class="span2"/>');
+					var div = $('<div/>').attr({id:"day" + day});
+					days[week][day] = new Date(monday.getTime() + (week * 7 + day) * 86400000);
+					div.append($("<h3>").text(days[week][day].Dy +" " + days[week][day].getDate()));
+					div.append($("<h4>").text(days[week][day].Schedule+" "+days[week][day].Letter));
+					days[week][day].bells.forEach(function (b) {
+						if (b.block) {
+							div.append(
+							$("<div>").text(b.block.name));
+						}
+					});
+					if (days[week][day].getDate() == clock.now.getDate()) {
+						div.addClass("today")
+					}
+					$("#week" + week).append(rtn.append(div));
+
+				})
+			})
+		</script>
+	</body>
+
+</html>
