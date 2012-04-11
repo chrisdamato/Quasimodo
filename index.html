@@ -69,6 +69,9 @@
 			div.today h3 {
 				background: yellow;
 			}
+			div.week {
+				margin: 16px 0;
+			}
       .hero-unit {
         text-align: center;
       }
@@ -157,27 +160,42 @@
 						</h1>
 						<div id="bells"></div>
 					</div> -->
-					<div class="tabbable">
-						<ul class="nav nav-tabs">
-							<li class="active">
-								<a href="#1" data-toggle="tab">Next</a>
-							</li>
-							<li class="">
-								<a href="#2" data-toggle="tab">Now</a>
-							</li>
-							
-						</ul>
-						<div class="tab-content" style="height: 129px; font-size:32px; text-align: center">
-							<div class="tab-pane active" id="1">
-								<div class="live-status"></div>
-							</div>
-							<div class="tab-pane" id="2">
-								<div class="live-time"></div>
-							</div>
+	<div class="tabbable" style="margin-bottom: 9px;">
+        <ul class="nav nav-tabs">
+          <li class=""><a href="#1" data-toggle="tab">Section 1</a></li>
+          <li class=""><a href="#2" data-toggle="tab">Section 2</a></li>
+          <li class="active"><a href="#3" data-toggle="tab">Status</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane" id="1">
+            <p>I'm in Section 1.</p>
+          </div>
+          <div class="tab-pane" id="2">
+            <p>Howdy, I'm in Section 2.</p>
+          </div>
+          <div class="tab-pane active" id="3">
+          	<div class="live-status" style="line-height: normal; font-size:48px; text-align: center"></div>
+          </div>
+        </div>
+      </div>
+					<!-- <ul class="nav nav-tabs">
+						<li class="active">
+							<a href="#tab-status" data-toggle="tab">Next</a>
+						</li>
+						<li class="">
+							<a href="#tab-time" data-toggle="tab">Now</a>
+						</li>
+					</ul>
+					<div class="tab-content" style="height: 129px; font-size:32px; text-align: center">
+						<div class="tab-pane active" id="tab-status">
+							<div class="live-status"></div>
 						</div>
-						<div id="week0" class="row-fluid"></div>
-						<div id="week1" class="row-fluid"></div>
-					</div>
+						<div class="tab-pane" id="tab-time">
+							<div class="live-time"></div>
+						</div>
+					</div> -->
+					<div id="week0" class="week row-fluid"></div>
+					<div id="week1" class="week row-fluid"></div>
 					<!--/span-->
 				</div>
 			<!--/row-->
