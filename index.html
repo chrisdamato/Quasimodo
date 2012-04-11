@@ -3,7 +3,7 @@
 	
 	<head>
 		<meta charset="utf-8">
-		<title>mo-bs</title>
+		<title>Quasimodo</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
 		<meta name="author" content="">
@@ -230,6 +230,7 @@
 				$(".live-s").text("." + clock.now.Second);
 			};
 			clock.onMinute = function () {
+				document.title="Q-"+clock.now.getStatus().until
 				$(".live-time").text(clock.now.Time);
 				$(".live-status").text(clock.now.getStatus().description);
 			};
